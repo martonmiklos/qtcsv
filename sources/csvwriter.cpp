@@ -1,4 +1,4 @@
-#include "include/qtcsv/writer.h"
+#include "include/qtcsv/csvwriter.h"
 
 #include <limits>
 

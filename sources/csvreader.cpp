@@ -1,4 +1,4 @@
-#include "include/qtcsv/reader.h"
+#include "include/qtcsv/csvreader.h"
 
 #include <QFile>
 #include <QStringList>
