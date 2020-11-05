@@ -175,7 +175,7 @@ bool WriterPrivate::writeToIODevice(QIODevice& ioDevice,
 // string.
 QString WriterPrivate::getTempFileName()
 {
-    QString nameTemplate = QDir::tempPath() + "/qtcsv_" +
+    QString nameTemplate = QDir::tempPath() + QDir::separator() + "qtcsv_" +
                 QString::number(QCoreApplication::applicationPid()) + "_%1.csv";
 
     for (int counter = 0; counter < std::numeric_limits<int>::max(); ++counter)
@@ -183,7 +183,7 @@ QString WriterPrivate::getTempFileName()
         QString name = nameTemplate.arg(QString::number(qrand()));
         if ( false == QFile::exists(name) )
         {
-            return name;
+            return QDir::toNativeSeparators(name);
         }
     }
 
