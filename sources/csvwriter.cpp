@@ -2,11 +2,12 @@
 
 #include <limits>
 
-#include <QFile>
-#include <QDir>
-#include <QTextStream>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QRandomGenerator>
+#include <QTextStream>
 
 #include "include/qtcsv/abstractdata.h"
 #include "sources/filechecker.h"
@@ -180,7 +181,7 @@ QString WriterPrivate::getTempFileName()
 
     for (int counter = 0; counter < std::numeric_limits<int>::max(); ++counter)
     {
-        QString name = nameTemplate.arg(QString::number(qrand()));
+        QString name = nameTemplate.arg(QString::number(QRandomGenerator::system()->generate()));
         if ( false == QFile::exists(name) )
         {
             return QDir::toNativeSeparators(name);
